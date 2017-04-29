@@ -1,9 +1,10 @@
-This project uses Meteor, AngularJS, Google Material Design, and Mongo DB.
+# Dashboard Template Starter - Angular Meteor with JavaScript ES6; Material design (CSS)
+This project uses latest Meteor, AngularJS, Google Material Design, and Mongo DB. Great for starting new projects.
 
 # Set up Development env
 1. [Install Meteor](https://www.meteor.com/install)
 2. [Install MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/#install-mongodb-community-edition)
-2. cd ~project directory~
+2. cd <project directory>
 3. meteor npm install
 4. meteor
 
