@@ -1,0 +1,7 @@
+<ul style="list-style-type: none;">
+  <li ng-repeat="step in steps" ng-class="{active: $last}" ng-switch="$last || !!step.abstract"
+    style="float: left;">
+    <a ng-switch-when="false" href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel}}</a>
+    <span ng-switch-when="true">&nbsp; > {{step.ncyBreadcrumbLabel}}</span>
+  </li>
+</ul>

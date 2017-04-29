@@ -1,0 +1,85 @@
+<!-- INTEGRITY HAS TO MATCH
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous"> -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous"></script>-->
+
+<!-- TODO: USE MATERIAL DESIGN FLEXBOX. not bootstrap grid system.
+Mixing both css flexbox and bootstrap is a mess.
+-->
+
+
+<!-- MAIN CONTENT -->
+  <!-- TOOLBAR / HEADER
+  <div flex ng-include="'/client/modules/home/toolbar.html'" ></div>-->
+
+  <!-- UI CONTENT VIEW -->
+  <div class="md-padding" style='
+        background-image:url(/images/northern-lights.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding:10px 50px 50px 50px;
+        height:{{carousel_height}}px;
+        background-color: black;'
+    >
+      <center style="padding-top: 10%;">
+          <br>
+        <h1 style="color:#fff; text-shadow: 2px 2px #000000;">{{page.SITENAME}}</h1>
+        <br><br>
+        <h2 style="color:#fff; text-shadow: 1.5px 1.5px #000000;">Open source!</h2>
+        <br><br>
+        <!-- <div style="height:10%; position:absolute; bottom:20px;left: 0; right: 0; margin-left: auto; margin-right: auto;"> -->
+        <md-button href="#early-access" aria-label="early-access" du-smooth-scroll>
+            <md-icon class="material-icons" style="font-size:48px; color:#fff;"> keyboard_arrow_down </md-icon>
+        </md-button>
+      </center>
+  </div><!-- /.carousel -->
+
+
+  <div layout="column" flex id="early-access" class="md-padding" style="padding:10px 50px 50px 50px; height:{{carousel_height}}px;">
+    <center>
+      <md-button href="#top" aria-label="info" du-smooth-scroll>
+          <md-icon class="material-icons" style="font-size:48px;color:#000;"> keyboard_arrow_up </md-icon>
+      </md-button>
+    </center>
+    <h1>
+      <h1> Get Early Access </h1>
+    </center>
+    <p>Recieve updates and include your Spotify playlists and profile URIs to get exclusive coverage early!  </p>
+    <form name="userForm" ng-submit="submitForm()">
+      <div layout="row" flex>
+        <md-input-container class="col-md-6 md-block" >
+          <label>Your Name</label>
+          <input type="text" name="name" ng-model="user_info.name" required>
+        </md-input-container>
+        <md-input-container class="col-md-6 md-block" >
+          <label>Your Email</label>
+          <input type="email" name="email" ng-model="user_info.email" ng-maxlength="100" required >
+          <span class="md-error" ng-show="userForm.email.$error.email">Not valid email!</span>
+        </md-input-container>
+      </div>
+
+      <span class='md-title'>Your favorite colors</span>
+      <md-input-container class=" md-block" layout="row" flex>
+        <label></label>
+        <md-chips ng-model="user_info.playlist_uris" md-separator-keys="chip_keys"
+          placeholder="+URI" secondary-placeholder="+URI" md-add-on-blur="true">
+        </md-chips>
+      </md-input-container>
+
+
+      <md-input-container class=" md-block" layout="row" flex>
+        <md-checkbox ng-model="user_info.more_info" aria-label="more info ">
+          Would you like more info?
+        </md-checkbox>
+      </md-input-container>
+
+      <div class=" md-block" layout="row" flex>
+        <md-button type="submit" class="md-raised md-primary" aria-label="submit" ng-disabled="submitted">
+          Submit <span class="glyphicon glyphicon-circle-arrow-right"></span>
+        </md-button>
+      </div>
+    </form>
+    <br><br><br>
+    <!-- FOOTER -->
+    <center>
+    <p><i>Your information is secure and not shared with third-party programs.</i></p>
+  </div>

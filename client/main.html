@@ -1,0 +1,48 @@
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Angular Meteor with ES6, Dashboard template by milean.co">
+  <meta name="author" content="Milean.co">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+  <link rel="stylesheet" href="styles/material-colors/colors.css">
+
+  <!-- Latest compiled and minified CSS
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+-->
+
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <title ng-bind="page.title"></title>
+</head>
+
+<body >
+  <!-- <ui-view class="main_body" flex></ui-view> -->
+  <div ng-controller="MenuCtrl">
+    <!-- SIDEBAR
+    <div ng-include="'client/modules/menu/views/includes/sidebar.html'" flex></div>-->
+
+    <!-- MAIN CONTENT -->
+
+      <!-- TOOLBAR / HEADER -->
+      <div  ng-include="'/client/modules/menu/views/includes/header_toolbar.ng.html'" id="top" flex></div>
+
+      <!-- SEARCH toolbar-->
+      <div ng-include="'/client/modules/menu/views/includes/search_toolbar.ng.html'" flex></div>
+
+      <!-- MAIN CONTENT -->
+
+
+        <!-- HEADER [blue] CARD -->
+        <div ng-if="state_name != 'home'" ng-include="'/client/modules/core/views/includes/header-img.include.ng.html'" flex></div>
+
+        <!-- UI CONTENT VIEW -->
+        <ui-view  > </ui-view >
+
+        <!-- FOOTER -->
+        <div  class="grey-bg" ng-include="'/client/modules/menu/views/includes/footer.ng.html'" flex></div>
+
+
+  </div>
+</body>
