@@ -1,6 +1,8 @@
 
 import {SideMenuService} from './SideMenuService.js';
 import {MenuCtrl} from './controllers/MenuCtrl.js';
+import {MenuToggleDirective} from './directives/menuToggle.js';
+import {MenuLinkDirective} from './directives/menuLink.js';
 
 var LeftCtrl = function ($scope, $timeout, $mdSidenav, $log) {
 /** close btn
@@ -29,4 +31,6 @@ export default angular
     .controller('MenuCtrl',  ['$scope', '$rootScope', '$timeout', '$mdSidenav', '$state', '$location', '$log', '$mdToast', 'SideMenuService', MenuCtrl])
     .controller('LeftCtrl',  ['$scope', '$timeout', '$mdSidenav', '$log', LeftCtrl])
     .controller('RightCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', RightCtrl])
+    .directive('menuToggle', ['$timeout', MenuToggleDirective])
+    .directive('menuLink',   [ MenuLinkDirective ])
     ;

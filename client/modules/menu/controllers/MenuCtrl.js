@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 
 export function MenuCtrl ($scope, $rootScope, $timeout, $mdSidenav, $state, $location, $log, $mdToast, SideMenuService) {
+    var vm = this;
     console.log("menu ctrl");
     // PROFILE CARD
     $scope.user = {};
@@ -100,25 +101,25 @@ export function MenuCtrl ($scope, $rootScope, $timeout, $mdSidenav, $state, $loc
 
     // SIDEMENU STUFF //////////////////////////////
     //vars for menu-link and menu-toggle
-    $scope.autoFocusContent = false;
-    $scope.menu = SideMenuService;
+    vm.autoFocusContent = false;
+    vm.menu = SideMenuService;
 
-    console.log('menu: ', $scope.menu);
+    console.log('menu: ', vm.menu)
 
-    $scope.status = {
+    vm.status = {
       isFirstOpen: true,
       isFirstDisabled: false
     };
 
-    $scope.isOpen = function (section) {
+    vm.isOpen = function (section) {
       return SideMenuService.isSectionSelected(section);
     }
 
-    $scope.toggleOpen = function (section) {
+    vm.toggleOpen = function (section) {
       SideMenuService.toggleSelectSection(section);
     }
 
-    $scope.isSectionSelected = function (section) {
+    vm.isSectionSelected = function (section) {
       var selected = false;
       var openedSection = SideMenuService.openedSection;
       if(openedSection === section){
@@ -133,11 +134,11 @@ export function MenuCtrl ($scope, $rootScope, $timeout, $mdSidenav, $state, $loc
       }
       return selected;
     }
-    $scope.focusSection = function () {
-      $scope.autoFocusContent = true;
-      $scope.close("left");
+    vm.focusSection = function () {
+      vm.autoFocusContent = true;
+      vm.close("left");
     }
-    $scope.close = function (side) {
+    vm.close = function (side) {
       $mdSidenav(side).close()
         .then(function () {
           $log.debug("close " + side + " is done");
